@@ -18,6 +18,10 @@ public class GrafikFrame extends JFrame {
         JButton btn = gp.getButton();
         btn.addActionListener(controler);
         btn.setActionCommand("ne");
+
+        JTextField jt = gp.getTxtField(0);
+        jt.addActionListener(controler);
+        jt.setActionCommand("txt");
     }
 
     public void setRundenErgebnis(String s) {
@@ -36,11 +40,11 @@ public class GrafikFrame extends JFrame {
         this.gp.setGesamtErgebnis(s);
     }
 
-    public String getTxt() {
-        return this.gp.getTxt();
+    public String getTxt(int i) {
+        return this.gp.getTxt(i);
     }
 
-    public void setTxt(String s) {
-        this.gp.setTxt(s);
+    public void setTxt(String s, int i) {
+        this.gp.setTxt(s, i);
     }
 }

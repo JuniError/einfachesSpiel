@@ -3,11 +3,12 @@ import javax.swing.*;
 import java.awt.*;
 
 import static javax.swing.BoxLayout.PAGE_AXIS;
+import static javax.swing.SwingConstants.CENTER;
 
 public class GrafikPanel extends JPanel{
     private JLabel rde = new JLabel("Tippe eine Zahl von 1 bis 9");
-    private JLabel gsp = new JLabel("Gesamtpunkte: ");
-    private JTextField txt = new JTextField();
+    private JLabel gsp = new JLabel("Gesamtpunkte: 30");
+    private JTextField[] txt = new JTextField[2];
     private JButton btn;
 
     public GrafikPanel() {
@@ -22,14 +23,13 @@ public class GrafikPanel extends JPanel{
         oben.add(new JLabel("Computer:"));
 
         JPanel mitte = new JPanel(new GridLayout(1, 2));
-        txt.setHorizontalAlignment(JTextField.CENTER);
-        txt.setFont(new Font("SansSerif", Font.BOLD, 64));
-        mitte.add(txt);
-        JLabel comp = new JLabel();
-        comp.setFont(new Font("SansSerif", Font.BOLD, 64));
-        comp.setBackground(Color.WHITE);
-        comp.setHorizontalAlignment(SwingConstants.CENTER);
-        mitte.add(comp);
+        for (int i = 0; i < 2; i++) {
+            txt[i] = new JTextField();
+            txt[i].setHorizontalAlignment(CENTER);
+            txt[i].setFont(new Font("SansSerif", Font.BOLD, 64));
+            mitte.add(txt[i]);
+        }
+        txt[1].setEnabled(false);
         JPanel mische = new JPanel(new GridLayout(2, 2));
         mische.add(oben);
         mische.add(mitte);
@@ -60,11 +60,15 @@ public class GrafikPanel extends JPanel{
 
     public JButton getButton() { return this.btn; }
 
-    public String getTxt() {
-        return this.txt.getText();
+    public String getTxt(int i) {
+        return this.txt[i].getText();
     }
 
-    public void setTxt(String s) {
-        this.txt.setText(s);
+    public void setTxt(String s, int i) {
+        this.txt[i].setText(s);
+    }
+
+    public JTextField getTxtField(int i) {
+        return txt[i];
     }
 }
