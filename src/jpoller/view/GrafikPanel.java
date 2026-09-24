@@ -8,6 +8,7 @@ public class GrafikPanel extends JPanel{
     private JLabel rde = new JLabel("Tippe eine Zahl von 1 bis 9");
     private JLabel gsp = new JLabel("Gesamtpunkte: ");
     private JTextField txt = new JTextField();
+    private JButton btn;
 
     public GrafikPanel() {
         BorderLayout b = new BorderLayout();
@@ -24,34 +25,46 @@ public class GrafikPanel extends JPanel{
         txt.setHorizontalAlignment(JTextField.CENTER);
         txt.setFont(new Font("SansSerif", Font.BOLD, 64));
         mitte.add(txt);
-        JLabel comp = new JLabel("3");
+        JLabel comp = new JLabel();
         comp.setFont(new Font("SansSerif", Font.BOLD, 64));
         comp.setBackground(Color.WHITE);
         comp.setHorizontalAlignment(SwingConstants.CENTER);
         mitte.add(comp);
-
         JPanel mische = new JPanel(new GridLayout(2, 2));
         mische.add(oben);
         mische.add(mitte);
 
         JPanel unten = new JPanel();
-        JButton btn = new JButton("Noch einmal!");
-        unten.add(btn);
+        this.btn = new JButton("Noch einmal!");
+        unten.add(this.btn);
 
         this.add(mische, BorderLayout.CENTER);
-
         this.add(unten, BorderLayout.PAGE_END);
     }
 
-    public void setErgebnis(int z, int check) {
-        if(check == 0) {
-            if(z > 0) {
-                rde.setText("+" + z);
-            } else if (z < 0) {
-                rde.setText("" + z);
-            }
-        } else {
-            gsp.setText("" + z);
-        }
+    public void setRundenErgebnis(String s) {
+        rde.setText(s);
+    }
+
+    public String getRundenErgebnis() {
+        return rde.getText();
+    }
+
+    public String getGesamtErgebnis() {
+        return gsp.getText();
+    }
+
+    public void setGesamtErgebnis(String s) {
+        gsp.setText(s);
+    }
+
+    public JButton getButton() { return this.btn; }
+
+    public String getTxt() {
+        return this.txt.getText();
+    }
+
+    public void setTxt(String s) {
+        this.txt.setText(s);
     }
 }
