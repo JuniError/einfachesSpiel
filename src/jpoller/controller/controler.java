@@ -29,6 +29,11 @@ public class controler implements ActionListener {
             this.eingabe = Integer.parseInt(this.frame.getTxt(0));
             this.gm.berechneRunde(this.eingabe);
             this.frame.setGesamtErgebnis("" + gm.getGesamtPunkte());
+            if(Integer.parseInt(this.frame.getGesamtErgebnis()) <= 0) {
+                this.frame.setRundenErgebnis("Verloren!");
+            }
+            this.frame.setRundenErgebnis("" + gm.getRundenErgebnis());
+
         }
     }
 
