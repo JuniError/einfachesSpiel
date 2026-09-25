@@ -6,6 +6,7 @@ import static javax.swing.BoxLayout.PAGE_AXIS;
 import static javax.swing.SwingConstants.CENTER;
 
 public class GrafikPanel extends JPanel{
+
     private JLabel rde = new JLabel("Tippe eine Zahl von 1 bis 9");
     private JLabel gsp = new JLabel("Gesamtpunkte: 30");
     private JTextField[] txt = new JTextField[2];
