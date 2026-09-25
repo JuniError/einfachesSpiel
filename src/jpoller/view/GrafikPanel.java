@@ -14,6 +14,7 @@ public class GrafikPanel extends JPanel{
     public GrafikPanel() {
         BorderLayout b = new BorderLayout();
         this.setLayout(b);
+
         JPanel oben = new JPanel(new GridLayout(3, 2));
         oben.add(new JLabel("Rundenergebnis:"));
         oben.add(new JLabel("Gesamtpunkte:"));
