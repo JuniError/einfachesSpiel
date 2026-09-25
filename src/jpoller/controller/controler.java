@@ -26,6 +26,7 @@ public class controler implements ActionListener {
             }
             this.frame.getGrafikPanel().setRundenErgebnis("Tippe eine Zahl von 1 bis 9");
             this.frame.getGrafikPanel().getTxtField(0).setEnabled(true);
+            this.frame.getGrafikPanel().getButton().setEnabled(false);
         } else if(cmd.equals("txt")) {
             this.eingabe = Integer.parseInt(this.frame.getGrafikPanel().getTxt(0));
             this.gm.berechneRunde(this.eingabe);
@@ -33,6 +34,8 @@ public class controler implements ActionListener {
             this.frame.getGrafikPanel().setRundenErgebnis("" + this.gm.getRundenErgebnis());
             this.frame.getGrafikPanel().setGesamtErgebnis("" + this.gm.getGesamtPunkte());
             this.frame.getGrafikPanel().setTxt("" + this.gm.getComputerZahl(), 1);
+            this.frame.getGrafikPanel().getTxtField(0).setEnabled(false);
+            this.frame.getGrafikPanel().getButton().setEnabled(true);
             if(this.gm.hatVerloren()) {
                 this.frame.getGrafikPanel().setRundenErgebnis("Verloren!");
                 this.frame.getGrafikPanel().getTxtField(0).setEnabled(false);
@@ -42,7 +45,8 @@ public class controler implements ActionListener {
                 this.frame.getGrafikPanel().getTxtField(0).setEnabled(false);
                 this.frame.getGrafikPanel().getButton().setEnabled(false);
             }
-            this.frame.getGrafikPanel().getTxtField(0).setEnabled(false);
+
+
         }
     }
 
