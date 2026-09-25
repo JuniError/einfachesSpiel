@@ -3,6 +3,7 @@ package jpoller.controller;
 import jpoller.view.GrafikFrame;
 import jpoller.model.GewinnModel;
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.*;
 
 public class controler implements ActionListener {
@@ -36,6 +37,17 @@ public class controler implements ActionListener {
             this.frame.getGrafikPanel().setTxt("" + this.gm.getComputerZahl(), 1);
             this.frame.getGrafikPanel().getTxtField(0).setEnabled(false);
             this.frame.getGrafikPanel().getButton().setEnabled(true);
+            if(this.gm.getRundenErgebnis() < 0) {
+                for (int i = 0; i < 2; i++) {
+                    this.frame.getGrafikPanel().getJLabel(i).setOpaque(true);
+                    this.frame.getGrafikPanel().getJLabel(i).setBackground(Color.RED);
+                }
+            } else {
+                for (int i = 0; i < 2; i++) {
+                    this.frame.getGrafikPanel().getJLabel(i).setOpaque(true);
+                    this.frame.getGrafikPanel().getJLabel(i).setBackground(Color.GREEN);
+                }
+            }
             if(this.gm.hatVerloren()) {
                 this.frame.getGrafikPanel().setRundenErgebnis("Verloren!");
                 this.frame.getGrafikPanel().getTxtField(0).setEnabled(false);
